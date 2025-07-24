@@ -11,6 +11,10 @@ class Jxesource < Formula
   end
 
   def install
+    # Debug: 列出当前目录内容
+    system "find", ".", "-name", "map_source"
+    system "ls", "-la", "."
+    
     bin.install "map_source/map_source" => "JXESource"
     
     # 安装文档
