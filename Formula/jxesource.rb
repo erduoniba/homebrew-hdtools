@@ -11,11 +11,20 @@ class Jxesource < Formula
   end
 
   def install
-    # Debug: 列出当前目录内容
-    system "find", ".", "-name", "map_source"
-    system "ls", "-la", "."
-    
-    bin.install "map_source/map_source" => "JXESource"
+    # 处理可能的目录结构
+    if File.exist?("map_source/map_source")
+      bin.install "map_source/map_source" => "JXESource"
+    elsif File.exist?("map_source")
+      bin.install "map_source" => "JXESource"
+    else
+      # 查找可执行文件
+      map_source_file = Dir.glob("**/map_source").find { |f| File.executable?(f) }
+      if map_source_file
+        bin.install map_source_file => "JXESource"
+      else
+        odie "Could not find map_source executable"
+      end
+    end
     
     # 安装文档
     if File.exist?("map_source/README.md")
