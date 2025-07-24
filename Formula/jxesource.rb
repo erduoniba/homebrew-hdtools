@@ -11,15 +11,15 @@ class Jxesource < Formula
   end
 
   def install
-    bin.install "JXESource"
+    bin.install "map_source/map_source" => "JXESource"
     
     # 安装文档
-    if File.exist?("README.md")
-      doc.install "README.md"
+    if File.exist?("map_source/README.md")
+      doc.install "map_source/README.md"
     end
     
-    if File.exist?("BINARY_INFO.txt")
-      doc.install "BINARY_INFO.txt"
+    if File.exist?("map_source/BINARY_INFO.txt")
+      doc.install "map_source/BINARY_INFO.txt"
     end
   end
 
