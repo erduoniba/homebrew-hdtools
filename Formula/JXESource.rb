@@ -1,11 +1,11 @@
-class MapSource < Formula
+class Jxesource < Formula
   desc "LLDB source code mapping tool for iOS development"
   homepage "https://github.com/erduoniba/homebrew-hdtools"
   version "1.0.0"
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/erduoniba/homebrew-hdtools/blob/main/JXESource/map_source-v1.0.0-Darwin-arm64-binary-20250724_124657.tar.gz"
+      url "https://github.com/erduoniba/homebrew-hdtools/archive/refs/tags/1.0.0.tar.gz"
       sha256 "82dade3dcab6571a11792217a7a905c6b5e48aec767fea763b659147e2c9acc6"
     end
   end
