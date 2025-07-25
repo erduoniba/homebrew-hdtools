@@ -11,19 +11,28 @@ class Jesource < Formula
   end
 
   def install
-    # 从嵌套的二进制包中提取文件
-    cd "jesource" do
-      system "tar", "-xf", "jesource-v1.0.1-Darwin-arm64-binary-20250725_123253.tar.gz"
+    # 处理可能的目录结构
+    if File.exist?("jesource/jesource")
       bin.install "jesource/jesource" => "jesource"
-      
-      # 安装文档
-      if File.exist?("jesource/README.md")
-        doc.install "jesource/README.md"
+    elsif File.exist?("jesource")
+      bin.install "jesource" => "jesource"
+    else
+      # 查找可执行文件
+      jesource_file = Dir.glob("**/jesource").find { |f| File.executable?(f) }
+      if jesource_file
+        bin.install jesource_file => "jesource"
+      else
+        odie "Could not find jesource executable"
       end
-      
-      if File.exist?("jesource/BINARY_INFO.txt")
-        doc.install "jesource/BINARY_INFO.txt"
-      end
+    end
+    
+    # 安装文档
+    if File.exist?("jesource/README.md")
+      doc.install "jesource/README.md"
+    end
+    
+    if File.exist?("jesource/BINARY_INFO.txt")
+      doc.install "jesource/BINARY_INFO.txt"
     end
   end
 
