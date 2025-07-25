@@ -1,12 +1,12 @@
 class Jesource < Formula
   desc "LLDB source code mapping tool for iOS development"
   homepage "https://github.com/erduoniba/jesource"
-  version "1.0.3"
+  version "1.0.4"
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/erduoniba/jesource/releases/download/1.0.3/jesource-v1.0.3-Darwin-arm64-binary-20250725_133527.tar.gz"
-      sha256 "491dec44266a923b6624f25880768f406844b8c2176dd66f7d0170be7d272792"
+      url "https://github.com/erduoniba/jesource/releases/download/1.0.4/jesource-v1.0.4-Darwin-arm64-binary-20250725_150415.tar.gz"
+      sha256 "07bbb7462ec96f2e6f2fb45b33ec822459a61007e0af8dcbbd737e7b737cff56"
     end
   end
 
