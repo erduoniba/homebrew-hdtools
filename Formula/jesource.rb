@@ -5,8 +5,8 @@ class Jesource < Formula
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/erduoniba/jesource/releases/download/1.0.2/jesource-v1.0.2-Darwin-arm64-binary-20250725_125621.tar.gz"
-      sha256 "91e5c873570998d1de44ecdb6a0889120880d2fc91e354c2ea4063d30ef106a2"
+      url "https://github.com/erduoniba/jesource/releases/download/1.0.3/jesource-v1.0.3-Darwin-arm64-binary-20250725_133527.tar.gz"
+      sha256 "491dec44266a923b6624f25880768f406844b8c2176dd66f7d0170be7d272792"
     end
   end
 
