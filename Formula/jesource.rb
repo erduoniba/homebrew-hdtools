@@ -1,7 +1,7 @@
 class Jesource < Formula
   desc "LLDB source code mapping tool for iOS development"
   homepage "https://github.com/erduoniba/jesource"
-  version "1.0.2"
+  version "1.0.3"
   
   on_macos do
     if Hardware::CPU.arm?
