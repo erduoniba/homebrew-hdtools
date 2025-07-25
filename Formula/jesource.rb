@@ -6,33 +6,24 @@ class Jesource < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/erduoniba/jesource/archive/refs/tags/1.0.0.tar.gz"
-      sha256 "a28dbb383434acdb5700f02b6e9050d8151ce71a3e07beb1191bd49038ed770c"
+      sha256 "3e2299412a2fc552c574b44cae58137bfad688065c9e3268ed99633d88b54b68"
     end
   end
 
   def install
-    # 处理可能的目录结构
-    if File.exist?("jesource/jesource")
+    # 从嵌套的二进制包中提取文件
+    cd "jesource" do
+      system "tar", "-xf", "jesource-v1.0.0-Darwin-arm64-binary-20250725_105414.tar.gz"
       bin.install "jesource/jesource" => "jesource"
-    elsif File.exist?("jesource")
-      bin.install "jesource" => "jesource"
-    else
-      # 查找可执行文件
-      jesource_file = Dir.glob("**/jesource").find { |f| File.executable?(f) }
-      if jesource_file
-        bin.install jesource_file => "jesource"
-      else
-        odie "Could not find jesource executable"
+      
+      # 安装文档
+      if File.exist?("jesource/README.md")
+        doc.install "jesource/README.md"
       end
-    end
-    
-    # 安装文档
-    if File.exist?("jesource/README.md")
-      doc.install "jesource/README.md"
-    end
-    
-    if File.exist?("jesource/BINARY_INFO.txt")
-      doc.install "jesource/BINARY_INFO.txt"
+      
+      if File.exist?("jesource/BINARY_INFO.txt")
+        doc.install "jesource/BINARY_INFO.txt"
+      end
     end
   end
 
