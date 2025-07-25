@@ -1,12 +1,12 @@
 class Jesource < Formula
   desc "LLDB source code mapping tool for iOS development"
   homepage "https://github.com/erduoniba/jesource"
-  version "1.0.4"
+  version "1.0.5"
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/erduoniba/jesource/releases/download/1.0.4/jesource-v1.0.4-Darwin-arm64-binary-20250725_150415.tar.gz"
-      sha256 "07bbb7462ec96f2e6f2fb45b33ec822459a61007e0af8dcbbd737e7b737cff56"
+      url "https://github.com/erduoniba/jesource/releases/download/1.0.5/jesource-v1.0.5-Darwin-arm64-binary-20250725_220617.tar.gz"
+      sha256 "34c9f6aa4bbb66c59e9d615d5f7c4aabf94c8a76e797abd2cc47ab9f21c6b51a"
     end
   end
 
@@ -47,12 +47,15 @@ class Jesource < Formula
       
       使用方法:
       jesource -m ModuleName -s /path/to/source -p /path/to/currentProject/Example/Pods/ --attach
+
+      二进制组件内，包含二进制
+      jesource -m ModuleName -s /path/to/source -p /path/to/currentProject/Example/Pods/ --submodule JDLTCommonPrivate:/path/to/private/source --attach
       
       查看帮助:
       jesource --help
       
       详细文档:
-        https://github.com/erduoniba/homebrewdist/tree/main/jesource
+      https://github.com/erduoniba/homebrewdist/tree/main/jesource
     EOS
   end
 end
