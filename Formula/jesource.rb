@@ -5,7 +5,7 @@ class Jesource < Formula
   
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/erduoniba/jesource/releases/download/1.0.1/jesource.tar.gz"
+      url "https://github.com/erduoniba/jesource/releases/download/1.0.1/jesource-v1.0.1-Darwin-arm64-binary-20250725_123253.tar.gz"
       sha256 "9743db35d068604a0f73b5aae116d03796ed84e3f7ddc2dc25ccfcf6da922a1a"
     end
   end
@@ -13,7 +13,7 @@ class Jesource < Formula
   def install
     # 从嵌套的二进制包中提取文件
     cd "jesource" do
-      system "tar", "-xf", "jesource.tar.gz"
+      system "tar", "-xf", "jesource-v1.0.1-Darwin-arm64-binary-20250725_123253.tar.gz"
       bin.install "jesource/jesource" => "jesource"
       
       # 安装文档
