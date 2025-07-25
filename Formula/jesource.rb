@@ -9,7 +9,8 @@ class Jesource < Formula
   sha256 "a28dbb383434acdb5700f02b6e9050d8151ce71a3e07beb1191bd49038ed770c"
 
   def install
-    bin.install "jesource/jesource" "jesource"
+    # 把解压出来的 jesource/jesource 文件，复制到 Homebrew 的 bin 目录，并且重命名为 jesource。
+    bin.install "jesource/jesource" => "jesource"
   end
 
     def caveats
