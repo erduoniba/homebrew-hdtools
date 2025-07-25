@@ -13,6 +13,7 @@ class Jesource < Formula
   def install
     # 从嵌套的二进制包中提取文件
     cd "jesource" do
+      system "tar", "-xf", "jesource.tar.gz"
       bin.install "jesource/jesource" => "jesource"
       
       # 安装文档
